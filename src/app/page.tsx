@@ -158,7 +158,7 @@ export default function Home() {
         {/* About Section */}
         <section id="about" className="py-20 flex flex-col md:flex-row items-center md:items-start gap-12 md:gap-20">
            {/* Image */}
-           <div className="relative w-full max-w-md shrink-0 h-[380px] md:h-[520px]">
+           <div className="relative w-full max-w-md shrink-0 h-[380px] md:h-[520px] order-2 md:order-1">
              <div className="relative w-full h-full rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
                <Image
                  src="/about.jpg"
@@ -170,7 +170,7 @@ export default function Home() {
            </div>
 
            {/* Content */}
-           <div className="flex-1 space-y-8">
+           <div className="flex-1 space-y-8 order-1 md:order-2">
              <h2 className="text-4xl md:text-5xl font-serif font-medium text-[#4FD1C5] leading-tight">
                Meet the mind behind <br /> the magic!
              </h2>
