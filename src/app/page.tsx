@@ -36,35 +36,20 @@ export default function Home() {
     {
       title: "FundHive",
       description: "Social crowdfunding platform connecting entrepreneurs with investors through verified pitches.",
-      tags: ["React", "Node.js", "MongoDB", "AI", "AWS S3", "Auth0"],
-      demoLink: "#",
-      codeLink: "#",
+      tags: ["React", "Node.js", "MongoDB","AWS S3", "Auth0"],
+      demoLink: "https://fundhive.vercel.app/",
+      codeLink: "https://github.com/Anamiiikka/fundhive",
       featured: true
     },
     {
-      title: "TaskMaster",
-      description: "Smart task management app with AI-driven prioritization and team collaboration features.",
-      tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
-      demoLink: "#",
+      title: "Trendora",
+      description: "Trendora is a full-stack e-commerce application designed to provide users with an intuitive interface to browse, purchase, and manage products.",
+      tags: ["React.js", "TailwindCSS", "Node.js", "MongoDB","Cloudinary"],
+      demoLink: "https://trendora-xo3m.onrender.com/",
       codeLink: "#",
       featured: false
     },
-    {
-      title: "EcoTrack",
-      description: "Carbon footprint tracker helping users monitor and reduce their environmental impact.",
-      tags: ["React Native", "Firebase", "Redux"],
-      demoLink: "#",
-      codeLink: "#",
-      featured: false
-    },
-    {
-      title: "DevSocial",
-      description: "A social platform for developers to share code snippets, articles, and connect.",
-      tags: ["Vue.js", "GraphQL", "Django"],
-      demoLink: "#",
-      codeLink: "#",
-      featured: false
-    }
+    
   ];
 
   return (
@@ -229,6 +214,10 @@ export default function Home() {
                     <Image src="/teamw.png" alt={project.title} fill className="object-cover" />
                   ) : project.title === "Codev" ? (
                     <Image src="/codev.png" alt={project.title} fill className="object-cover" />
+                  ) : project.title === "FundHive" ? (
+                    <Image src="/fundhive.png" alt={project.title} fill className="object-cover" />
+                  ) : project.title === "Trendora" ? (
+                    <Image src="/trendora.png" alt={project.title} fill className="object-cover" />
                   ) : (
                     <div className="absolute inset-0 bg-black group-hover:bg-black/80 transition-colors" />
                   )}
