@@ -2,34 +2,35 @@
 import Image from "next/image";
 import { useState } from "react";
 import Spotlight from "@/components/Spotlight";
-import { Briefcase, User, FileText, Linkedin, Phone, Mail, Github, ExternalLink } from "lucide-react";
+import { Briefcase, User, FileText, Linkedin, Phone, Mail, Github, ExternalLink, Menu, X } from "lucide-react";
 
 export default function Home() {
   const [showAll, setShowAll] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const projects = [
     {
       title: "WealthPulse",
       description: "AI-powered investment management platform for tracking mutual funds and crypto with real-time insights.",
-      tags: ["React", "FastAPI", "MongoDB", "AI/ML", "TailwindCSS"],
-      demoLink: "#",
-      codeLink: "#",
+      tags: ["Next.js", "Auth0","FastAPI", "MongoDB", "TailwindCSS"],
+      demoLink: "https://wealthpulse-nu.vercel.app/",
+      codeLink: "https://github.com/Anamiiikka/wealthpulse",
       featured: true
     },
     {
-      title: "Team Works WebApp",
-      description: "A comprehensive project management tool designed to streamline team collaboration and workflow.",
-      tags: ["React", "Node.js", "Express", "MongoDB", "Socket.IO"],
-      demoLink: "#",
-      codeLink: "#",
+      title: "Team Works",
+      description: "Built during my internship at AdaLabs, this platform was designed for Team Works Advisors",
+      tags: ["Next.js", "Node.js", "Express", "MongoDB", "TailwindCSS"],
+      demoLink: "https://www.teamworksadvisors.com/",
+      codeLink: "https://github.com/Anamiiikka/Team-works",
       featured: true
     },
     {
       title: "Codev",
       description: "Real-time collaborative code editor with AI assistance and multi-language execution.",
-      tags: ["React", "Node.js", "Socket.IO", "AI", "MongoDB"],
-      demoLink: "#",
-      codeLink: "#",
+      tags: ["React", "Node.js", "Socket.IO","AWS SDK", "MongoDB"],
+      demoLink: "https://codev-k6mg.onrender.com/",
+      codeLink: "https://github.com/Anamiiikka/code-editor",
       featured: false
     },
     {
@@ -79,21 +80,60 @@ export default function Home() {
       </div>
 
       {/* Navbar */}
-      <nav className="fixed top-0 w-full z-50 backdrop-blur-sm bg-[#0f0f0f]/50 pt-6 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="text-2xl font-bold tracking-tight">Anamika!</div>
-          <div className="flex items-center gap-8 text-sm font-medium text-gray-300">
-            <a href="#work" className="flex items-center gap-2 hover:text-white transition-colors">
+      <nav className="fixed top-0 w-full z-50 backdrop-blur-md bg-[#0f0f0f]/80 border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 h-20 flex justify-between items-center">
+          <a href="#" className="text-2xl font-bold tracking-tight text-white hover:text-[#E2F84E] transition-colors">Anamika!</a>
+          
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+            <a href="#work" className="flex items-center gap-2 hover:text-[#E2F84E] transition-colors">
               <Briefcase size={18} /> Work
             </a>
-            <a href="#about" className="flex items-center gap-2 hover:text-white transition-colors">
+            <a href="#about" className="flex items-center gap-2 hover:text-[#E2F84E] transition-colors">
               <User size={18} /> About
             </a>
-            <a href="/resume.pdf" className="flex items-center gap-2 hover:text-white transition-colors">
+            <a href="/resume.pdf" target="_blank" className="flex items-center gap-2 hover:text-[#E2F84E] transition-colors">
               <FileText size={18} /> Resume
             </a>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden text-white p-2 hover:text-[#E2F84E] transition-colors"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
+
+        {/* Mobile Menu Dropdown */}
+        {isMenuOpen && (
+          <div className="md:hidden absolute top-20 left-0 w-full bg-[#0f0f0f] border-b border-white/10 p-6 space-y-2 shadow-2xl animate-in slide-in-from-top-5 duration-200">
+            <a 
+              href="#work" 
+              onClick={() => setIsMenuOpen(false)}
+              className="flex items-center gap-4 text-lg font-medium text-gray-300 hover:text-[#E2F84E] hover:bg-white/5 rounded-xl p-4 transition-all"
+            >
+              <Briefcase size={20} /> Work
+            </a>
+            <a 
+              href="#about" 
+              onClick={() => setIsMenuOpen(false)}
+              className="flex items-center gap-4 text-lg font-medium text-gray-300 hover:text-[#E2F84E] hover:bg-white/5 rounded-xl p-4 transition-all"
+            >
+              <User size={20} /> About
+            </a>
+            <a 
+              href="/resume.pdf" 
+              target="_blank"
+              onClick={() => setIsMenuOpen(false)}
+              className="flex items-center gap-4 text-lg font-medium text-gray-300 hover:text-[#E2F84E] hover:bg-white/5 rounded-xl p-4 transition-all"
+            >
+              <FileText size={20} /> Resume
+            </a>
+          </div>
+        )}
       </nav>
 
       <main className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-24 md:pt-32 pb-20">
@@ -103,11 +143,11 @@ export default function Home() {
           <div className="flex-1 space-y-6">
             <h1 className="text-5xl md:text-7xl font-serif font-medium leading-tight">
               Hi! I&apos;m <span className="text-[#E2F84E]">Anamika</span>, <br />
-              Product Designer, <br />
-              Storyteller
+              Developer, <br />
+              Problem Solver
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-xl font-light">
-              With 4+ years of 0-1 experience crafting B2B, B2C solutions
+              Crafting digital experiences that function… unlike my sleep schedule.
             </p>
           </div>
 
@@ -133,10 +173,10 @@ export default function Home() {
         {/* About Section */}
         <section id="about" className="py-20 flex flex-col md:flex-row items-center md:items-start gap-12 md:gap-20">
            {/* Image */}
-           <div className="relative w-full max-w-md aspect-3/4 shrink-0">
+           <div className="relative w-full max-w-md shrink-0 h-[380px] md:h-[520px]">
              <div className="relative w-full h-full rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
                <Image
-                 src="/pic.jpg"
+                 src="/about.jpg"
                  alt="About Anamika"
                  fill
                  className="object-cover"
@@ -151,19 +191,24 @@ export default function Home() {
              </h2>
              <div className="space-y-6 text-lg text-gray-300 font-light leading-relaxed">
                <p>
-                 Software Engineer turned Product Designer, with 4+ years of industry experience. 
-                 I have worked on diverse projects across various domains: E-commerce, Healthcare, Finance, Energy and SaaS products.
+                  Hi, I’m Anamika — the human behind the pixels, prototypes, and occasionally questionable sleep schedule. I love taking wild ideas and shaping them into products that work beautifully (even when I don’t). I’m obsessed with intuitive design, clean architecture, and solving problems in ways that make people go, “Oh wow, that’s actually nice.” Whether it’s front-end finesse or full-stack engineering, I’m always creating something new, learning something cooler, and building a little bit of magic along the way.
                </p>
                <p className="text-[#4FD1C5] flex items-start gap-3 font-medium">
                  <span className="text-2xl">👩‍💻</span>
                  <span>
-                   Currently leading design of a Gen AI tool for fashion design, at Fword.ai
+                   Currently engineering delightful digital products with a spark of intelligence.
                  </span>
                </p>
              </div>
-             <button className="px-8 py-3 bg-[#E2F84E] text-black font-bold rounded-full hover:scale-105 transition-transform">
-               Learn More
-             </button>
+             <div className="flex gap-4">
+               <a href="#work" className="px-8 py-3 bg-[#E2F84E] text-black font-bold rounded-full hover:scale-105 transition-transform">
+                 Learn More
+               </a>
+               <a href="#contact" className="px-8 py-3 border border-[#E2F84E] text-[#E2F84E] font-bold rounded-full hover:bg-[#E2F84E]/10 hover:scale-105 transition-all">
+                 Contact Me
+               </a>
+             </div>
+             
            </div>
         </section>
 
@@ -177,15 +222,28 @@ export default function Home() {
             {projects.slice(0, showAll ? projects.length : 3).map((project, index) => (
               <div key={index} className="group rounded-3xl bg-[#1A1A1A] border border-white/10 overflow-hidden hover:border-[#E2F84E]/50 transition-all">
                 {/* Image Area */}
-                <div className="h-48 bg-black relative flex items-center justify-center group-hover:bg-black/80 transition-colors">
-                   <div className="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-4 group-hover:translate-y-0 duration-300">
+                <div className="h-48 relative overflow-hidden rounded-t-2xl">
+                  {project.title === "WealthPulse" ? (
+                    <Image src="/image.png" alt={project.title} fill className="object-cover" />
+                  ) : project.title === "Team Works" ? (
+                    <Image src="/teamw.png" alt={project.title} fill className="object-cover" />
+                  ) : project.title === "Codev" ? (
+                    <Image src="/codev.png" alt={project.title} fill className="object-cover" />
+                  ) : (
+                    <div className="absolute inset-0 bg-black group-hover:bg-black/80 transition-colors" />
+                  )}
+
+                  {/* Overlay buttons */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-4 group-hover:translate-y-0 duration-300">
                       <a href={project.demoLink} className="flex items-center gap-2 px-4 py-2 bg-white text-black rounded-full font-bold hover:bg-[#E2F84E] transition-colors">
                         <ExternalLink size={16} /> Demo
                       </a>
                       <a href={project.codeLink} className="flex items-center gap-2 px-4 py-2 bg-white text-black rounded-full font-bold hover:bg-[#E2F84E] transition-colors">
                         <Github size={16} /> Code
                       </a>
-                   </div>
+                    </div>
+                  </div>
                 </div>
                 
                 {/* Content */}
@@ -239,7 +297,7 @@ export default function Home() {
                Let&apos;s Connect!
              </p>
              <p className="text-gray-400 text-lg max-w-md leading-relaxed">
-              Feel free to reach out! I&apos;m here to help and will respond within 24 hours. Your questions matter to me!
+             Questions? Ideas? I&apos;m just one message away and quick to reply.
             </p>
           </div>
 
@@ -260,7 +318,7 @@ export default function Home() {
                 <Linkedin className="text-gray-400 mt-1" size={24} />
                 <div>
                    <p className="font-medium text-white text-lg">Connect with me on Linkedin</p>
-                   <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#E2F84E] transition-colors block underline decoration-gray-600 underline-offset-4 hover:decoration-[#E2F84E]">linkedin.com/in/anamika</a>
+                   <a href="https://www.linkedin.com/in/anamikasingh20/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#E2F84E] transition-colors block underline decoration-gray-600 underline-offset-4 hover:decoration-[#E2F84E]">linkedin.com/in/anamikasingh20/</a>
                 </div>
              </div>
 
@@ -269,7 +327,7 @@ export default function Home() {
                 <Github className="text-gray-400 mt-1" size={24} />
                 <div>
                    <p className="font-medium text-white text-lg">Connect with me on Github</p>
-                   <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#E2F84E] transition-colors block underline decoration-gray-600 underline-offset-4 hover:decoration-[#E2F84E]">github.com/anamika</a>
+                   <a href="https://github.com/Anamiiikka" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#E2F84E] transition-colors block underline decoration-gray-600 underline-offset-4 hover:decoration-[#E2F84E]">github.com/Anamiiikka</a>
                 </div>
              </div>
           </div>
@@ -279,7 +337,7 @@ export default function Home() {
         <footer className="border-t border-white/10 py-10 mt-10 flex flex-col md:flex-row justify-between items-center gap-8">
            <div className="flex items-center gap-4">
               <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-[#E2F84E]">
-                 <Image src="/pic.jpg" alt="Anamika" fill className="object-cover" />
+                 <Image src="/bg1.png" alt="Anamika" fill className="object-cover" />
               </div>
               <span className="font-serif text-xl text-white">Anamika Singh</span>
            </div>
@@ -293,10 +351,10 @@ export default function Home() {
 
            <div className="flex gap-4">
              
-              <a href="https://linkedin.com" className="w-10 h-10 bg-white/5 text-white rounded-full flex items-center justify-center hover:bg-[#E2F84E] hover:text-black transition-all hover:scale-110">
+              <a href="https://www.linkedin.com/in/anamikasingh20/" className="w-10 h-10 bg-white/5 text-white rounded-full flex items-center justify-center hover:bg-[#E2F84E] hover:text-black transition-all hover:scale-110">
                 <Linkedin size={18} />
               </a>
-              <a href="https://github.com" className="w-10 h-10 bg-white/5 text-white rounded-full flex items-center justify-center hover:bg-[#E2F84E] hover:text-black transition-all hover:scale-110">
+              <a href="https://github.com/Anamiiikka" className="w-10 h-10 bg-white/5 text-white rounded-full flex items-center justify-center hover:bg-[#E2F84E] hover:text-black transition-all hover:scale-110">
                 <Github size={18} />
               </a>
            </div>
