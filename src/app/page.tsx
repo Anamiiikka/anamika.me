@@ -176,7 +176,7 @@ export default function Home() {
              </h2>
              <div className="space-y-6 text-lg text-gray-300 font-light leading-relaxed">
                <p>
-                  Hi, I’m Anamika — the human behind the pixels, prototypes, and occasionally questionable sleep schedule. I love taking wild ideas and shaping them into products that work beautifully (even when I don’t). I’m obsessed with intuitive design, clean architecture, and solving problems in ways that make people go, “Oh wow, that’s actually nice.” Whether it’s front-end finesse or full-stack engineering, I’m always creating something new, learning something cooler, and building a little bit of magic along the way.
+                  Hi, I’m Anamika,the human behind the pixels, prototypes, and occasionally questionable sleep schedule. I love taking wild ideas and shaping them into products that work beautifully (even when I don’t). I’m obsessed with intuitive design, clean architecture, and solving problems in ways that make people go, “Oh wow, that’s actually nice.” Whether it’s front-end finesse or full-stack engineering, I’m always creating something new, learning something cooler, and building a little bit of magic along the way.
                </p>
                <p className="text-[#4FD1C5] flex items-start gap-3 font-medium">
                  <span className="text-2xl">👩‍💻</span>
@@ -187,7 +187,7 @@ export default function Home() {
              </div>
              <div className="flex gap-4">
                <a href="#work" className="px-8 py-3 bg-[#E2F84E] text-black font-bold rounded-full hover:scale-105 transition-transform">
-                 Learn More
+                 View Projects
                </a>
                <a href="#contact" className="px-8 py-3 border border-[#E2F84E] text-[#E2F84E] font-bold rounded-full hover:bg-[#E2F84E]/10 hover:scale-105 transition-all">
                  Contact Me
