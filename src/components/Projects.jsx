@@ -32,12 +32,14 @@ export default function Projects() {
               {/* Overlay buttons */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-4 group-hover:translate-y-0 duration-300">
-                  <a
-                    href={project.demoLink}
-                    className="flex items-center gap-2 px-4 py-2 bg-white text-black rounded-full font-bold hover:bg-[#E2F84E] transition-colors"
-                  >
-                    <ExternalLink size={16} /> Demo
-                  </a>
+                  {project.demoLink && (
+                    <a
+                      href={project.demoLink}
+                      className="flex items-center gap-2 px-4 py-2 bg-white text-black rounded-full font-bold hover:bg-[#E2F84E] transition-colors"
+                    >
+                      <ExternalLink size={16} /> Demo
+                    </a>
+                  )}
                   <a
                     href={project.codeLink}
                     className="flex items-center gap-2 px-4 py-2 bg-white text-black rounded-full font-bold hover:bg-[#E2F84E] transition-colors"

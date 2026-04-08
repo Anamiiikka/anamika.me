@@ -1,5 +1,15 @@
 export const projects = [
   {
+    title: "Zapkart",
+    description:
+      "High-performance quick-commerce backend powering instant grocery delivery with intelligent store matching, surge pricing, and zero inventory conflicts.",
+    tags: ["Node.js", "PostgreSQL", "PostGIS", "Redis", "Docker"],
+    image: "/zapkart.jpg",
+    demoLink: null,
+    codeLink: "https://github.com/Anamiiikka/Zapkart-Backend",
+    featured: true,
+  },
+  {
     title: "WealthPulse",
     description:
       "AI-powered investment management platform for tracking mutual funds and crypto with real-time insights.",
