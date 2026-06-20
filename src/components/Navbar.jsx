@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Briefcase, User, FileText, Menu, X } from "lucide-react";
+import { Briefcase, User, FileText, Menu, X, Sparkles } from "lucide-react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,7 +11,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 h-20 flex justify-between items-center">
         <a
           href="#"
-          className="text-2xl font-bold tracking-tight text-white hover:text-[#E2F84E] transition-colors"
+          className="font-cursive font-bold text-3xl text-white hover:text-[#E2F84E] transition-colors"
         >
           Anamika!
         </a>
@@ -25,13 +25,19 @@ export default function Navbar() {
             <Briefcase size={18} /> Work
           </a>
           <a
+            href="#experience"
+            className="flex items-center gap-2 hover:text-[#E2F84E] transition-colors"
+          >
+            <Sparkles size={18} /> Experience
+          </a>
+          <a
             href="#about"
             className="flex items-center gap-2 hover:text-[#E2F84E] transition-colors"
           >
             <User size={18} /> About
           </a>
           <a
-            href="https://drive.google.com/file/d/1kGNE1t6zV6-c-n79ov37Wfp0iMiuK5B4/view?usp=sharing"
+            href="https://drive.google.com/file/d/1KJHNN1H8WVGpShvzjfHnjSK0MySfNzv4/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 hover:text-[#E2F84E] transition-colors"
@@ -61,6 +67,13 @@ export default function Navbar() {
             <Briefcase size={20} /> Work
           </a>
           <a
+            href="#experience"
+            onClick={() => setIsMenuOpen(false)}
+            className="flex items-center gap-4 text-lg font-medium text-gray-300 hover:text-[#E2F84E] hover:bg-white/5 rounded-xl p-4 transition-all"
+          >
+            <Sparkles size={20} /> Experience
+          </a>
+          <a
             href="#about"
             onClick={() => setIsMenuOpen(false)}
             className="flex items-center gap-4 text-lg font-medium text-gray-300 hover:text-[#E2F84E] hover:bg-white/5 rounded-xl p-4 transition-all"
@@ -68,7 +81,7 @@ export default function Navbar() {
             <User size={20} /> About
           </a>
           <a
-            href="https://drive.google.com/file/d/1kGNE1t6zV6-c-n79ov37Wfp0iMiuK5B4/view?usp=sharing"
+            href="https://drive.google.com/file/d/1KJHNN1H8WVGpShvzjfHnjSK0MySfNzv4/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setIsMenuOpen(false)}

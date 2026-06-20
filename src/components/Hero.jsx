@@ -5,7 +5,11 @@ export default function Hero() {
     <section className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-20">
       <div className="flex-1 space-y-6">
         <h1 className="text-5xl md:text-7xl font-serif font-medium leading-tight">
-          Hi! I&apos;m <span className="text-[#E2F84E]">Anamika</span>, <br />
+          Hi! I&apos;m{" "}
+          <span className="font-cursive font-bold text-[#E2F84E] text-6xl md:text-8xl">
+            Anamika
+          </span>
+          , <br />
           Developer, <br />
           Problem Solver
         </h1>

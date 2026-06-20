@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-[#E2F84E]">
           <Image src="/bg1.png" alt="Anamika" fill className="object-cover" />
         </div>
-        <span className="font-serif text-xl text-white">Anamika Singh</span>
+        <span className="font-cursive font-bold text-2xl text-white">Anamika Singh</span>
       </div>
 
       <div className="flex flex-wrap justify-center gap-8 text-sm font-medium text-gray-400">
